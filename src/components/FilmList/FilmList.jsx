@@ -4,7 +4,7 @@ import './FilmList.css';
 function FilmList({ films }) {
     return (
         <div className='film-list'>
-            {films.map(film => <FilmCard poster={film.poster} name={film.name} score={film.score} />)}
+            {films.map(film => <FilmCard key={film.id} poster={film.poster} name={film.name} score={film.score} />)}
         </div>
     );
 }

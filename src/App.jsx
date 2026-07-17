@@ -7,16 +7,19 @@ import Search from './components/Search/Search';
 
 const films = [
   {
+    id: 1,
     name: 'Black Widow',
     score: 324,
     poster: './posters/black_widow.svg'
   },
   {
+    id: 2,
     name: 'Shang Chi',
     score: 124,
     poster: './posters/shang_chi.svg'
   },
   {
+    id: 3,
     name: 'Loki',
     score: 235,
     poster: './posters/loki.svg'
