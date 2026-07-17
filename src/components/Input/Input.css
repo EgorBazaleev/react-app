@@ -1,19 +1,24 @@
-.input{
+.input {
     display: flex;
     border: solid;
+    border-radius: 12px;
     align-items: center;
     width: fit-content;
     background: #0000001A;
 }
 
-.input__front-icon{
+.input ::placeholder {
+    text-align: left;
+}
+
+.input__front-icon {
     width: 21px;
     height: 21px;
     padding: 8px;
     border: 1.5px solid #475069
 }
 
-.input__input{
+.input__input {
     border: none;
     text-align: center;
     padding: 8px;

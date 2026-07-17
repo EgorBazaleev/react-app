@@ -1,0 +1,44 @@
+.film-card {
+    border: solid;
+    border-radius: 12px;
+    align-items: center;
+    width: fit-content;
+    background: #20283ECC;
+}
+
+.film-card__poster {
+    width: 266px;
+    height: 400px;
+    padding: 8px;
+}
+
+.film-card__score {
+    display: flex;
+    color: #FFAD49;
+    background-color: #000000A6;
+
+    width: 65px;
+    height: 32px;
+    opacity: 1;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+}
+
+.film-card__score_icone {
+    width: 15px;
+    height: 15px;
+    padding: 8px;
+}
+
+.film-card__name {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 2%;
+    color: #EBEEF5;
+    padding: 8px;
+}
