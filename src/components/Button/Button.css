@@ -1,0 +1,27 @@
+.button {
+
+    padding: 16px 32px;
+    gap: 8px;
+
+    /* Primary/400 */
+    background: #7B6EF6;
+    /* Primary/400 */
+    border-radius: 12px;
+
+    width: fit-content;
+    cursor: pointer;
+
+    transition: background 0.25s;
+
+    /* Body/Regular */
+    font-family: inherit;
+    font-size: 16px;
+
+    border: none;
+
+    color: #fff;
+}
+
+.button:hover {
+    background: #5144a5;
+}
