@@ -9,7 +9,7 @@ function FilmCard({ poster, name, score }) {
                     <div>{score}</div>
                 </div>
             </div>
-            <div className="film-card__name">{name}</div>
+            <div className={styles['film-card__name']}>{name}</div>
         </div>
     );
 }
