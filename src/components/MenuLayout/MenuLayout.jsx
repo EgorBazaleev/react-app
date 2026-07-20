@@ -1,10 +1,10 @@
-import './MenuLayout.css';
+import styles from './MenuLayout.module.css';
 
 function MenuLayout({ iconPath, children }) {
   return (
-    <div className="menu-layout">
-      {iconPath && <img className="menu-layout__front-icon" src={iconPath} />}
-      <div className="menu-layout__content">{children}</div>
+    <div className={styles['menu-layout']}>
+      {iconPath && <img className={styles['menu-layout__front-icon']} src={iconPath} />}
+      <div className={styles['menu-layout__content']}>{children}</div>
     </div>
   );
 }

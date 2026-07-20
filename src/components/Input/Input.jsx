@@ -1,10 +1,10 @@
-import './Input.css';
+import styles from './Input.module.css';
 
-function Input({iconPath, placeholder}){
+function Input({ iconPath, placeholder }) {
     return (
-        <div className='input'>
-            {iconPath && <img className='input__front-icon' src={iconPath}/>}
-            <input className='input__input' placeholder={placeholder}/>
+        <div className={styles['input']}>
+            {iconPath && <img className={styles['input__front-icon']} src={iconPath} />}
+            <input className={styles['input__input']} placeholder={placeholder} />
         </div>
     );
 }

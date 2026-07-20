@@ -1,6 +1,8 @@
+import styles from './Paragraph.module.css';
+
 function Paragraph() {
     return (
-        <div className='paragraph'>Введите название фильма, сериала или мультфильма для поиска и добавления в избранное</div>
+        <div className={styles['paragraph']}>Введите название фильма, сериала или мультфильма для поиска и добавления в избранное</div>
     );
 }
 
