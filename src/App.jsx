@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import FilmList from './components/FilmList/FilmList';
 import Header from './components/Header/Header';
 import MenuLayout from './components/MenuLayout/MenuLayout';
@@ -28,7 +28,7 @@ const films = [
 
 function App() {
   return (
-    <>
+    <div className={styles['app']}>
       <MenuLayout iconPath='./bookmark.svg'>
         <a href="">Поиск фильмов</a>
         <a href="">Мои фильмы</a>
@@ -38,7 +38,7 @@ function App() {
       <Paragraph />
       <Search />
       <FilmList films={films} />
-    </>
+    </div>
   );
 }
 
