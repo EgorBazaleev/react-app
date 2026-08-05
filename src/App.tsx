@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import styles from './App.module.css';
 import Button from './components/Button/Button';
 import FilmList from './components/FilmList/FilmList';
@@ -33,8 +33,8 @@ const films = [
 
 function App() {
 
-  const [userInputName, setUserInputName] = useState();
-  const userInputOnChange = (event) => setUserInputName(event.target.value);
+  const [userInputName, setUserInputName] = useState<string>('');
+  const userInputOnChange = (event: ChangeEvent<HTMLInputElement>) => setUserInputName(event.target.value);
 
   const { setUserName } = useContext(UserContext);
 
