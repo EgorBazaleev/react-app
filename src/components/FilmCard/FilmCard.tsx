@@ -1,6 +1,7 @@
 import styles from './FilmCard.module.css';
+import { FilmCardProps } from './FilmCardProps';
 
-function FilmCard({ poster, name, score }) {
+function FilmCard({ poster, name, score }: FilmCardProps) {
     return (
         <div className={styles['film-card']}>
             <div className={styles['film-card__poster']} style={{ backgroundImage: `url(${poster})` }}>
