@@ -7,8 +7,8 @@ function FilmList({ films, isInFavorite }: FilmListProps) {
     return (
         <div className={styles['film-list']}>
             {films.map(film =>
-                <Link to={`/movie/${film.id}`} className={styles['link']}>
-                    <FilmCard key={film.id} poster={film.poster} name={film.name} score={film.score} isInFavorite={isInFavorite} />
+                <Link to={`/movie/${film.id}`} className={styles['link']} key={film.id} >
+                    <FilmCard poster={film.poster} name={film.name} score={film.score} isInFavorite={isInFavorite} />
                 </Link>
             )}
 
