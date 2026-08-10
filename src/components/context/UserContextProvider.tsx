@@ -47,6 +47,9 @@ export function UserContextProvider({ children }: { children: ReactNode }) {
 
     const logout = (userName: string) => {
         const { user, users } = getUserAndUsers(userName);
+        if (!user) {
+            return;
+        }
         user!.isLogined = false;
         setUsers(users);
     };
