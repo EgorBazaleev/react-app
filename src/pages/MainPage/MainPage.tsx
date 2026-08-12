@@ -4,36 +4,45 @@ import Header from "../../components/Header/Header";
 import Paragraph from "../../components/Paragraph/Paragraph";
 import Search from "../../components/Search/Search";
 import styles from './MainPage.module.css'
-
-const films: Film[] = [
-    {
-        id: 1,
-        name: 'Black Widow',
-        score: 324,
-        poster: './posters/black_widow.svg'
-    },
-    {
-        id: 2,
-        name: 'Shang Chi',
-        score: 124,
-        poster: './posters/shang_chi.svg'
-    },
-    {
-        id: 3,
-        name: 'Loki',
-        score: 235,
-        poster: './posters/loki.svg'
-    }
-];
+import NoFilms from "../../components/NoFilms/NoFilms";
+import axios from "axios";
+import { BASE_URL } from "../../helpers/API";
+import { useState } from "react";
+import { OMDbSearchResponse } from "../../types/OMDbSearchResponse";
 
 function MainPage() {
+
+    const [films, setFilms] = useState<Film[]>([]);
+
+    const getFilms = async (searchText: string) => {
+        try {
+            const { data } = await axios.get<OMDbSearchResponse>(`${BASE_URL}&s=${searchText}`)
+            console.log(data);
+            if (data && data.Response === 'True' && data.Search?.length > 0) {
+                const foundFilms = data.Search.map(film => {
+                    return {
+                        id: film.imdbID,
+                        poster: film.Poster,
+                        name: film.Title,
+                        score: 0
+                    }
+                });
+                setFilms(foundFilms);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     return (
         <div className={styles["main-page"]}>
             <Header text="Поиск" />
             <Paragraph />
-            <Search />
-            <FilmList films={films} isInFavorite={false} />
+            <Search onSearch={getFilms} />
+            {films?.length
+                ? <FilmList films={films} isInFavorite={false} />
+                : <NoFilms />}
+
         </div>
     );
 }

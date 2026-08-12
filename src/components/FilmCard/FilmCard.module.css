@@ -30,6 +30,15 @@
     letter-spacing: 2%;
     color: #EBEEF5;
     padding: 8px;
+
+    width: 250px;
+    /* 1. Requires a fixed width or max-width */
+    white-space: nowrap;
+    /* 2. Prevents the text from wrapping to a new line */
+    overflow: hidden;
+    /* 3. Hides the text that goes past the width */
+    text-overflow: ellipsis;
+    /* 4. Adds the "..." at the end */
 }
 
 .film-card__footer {

@@ -8,6 +8,9 @@ import LoginForm from './pages/LoginForm/LoginForm';
 import MainMenu from './components/MainMenu/MainMenu';
 import FavoritePage from './pages/FavoritePage/FavoritePage';
 import FilmDetailsPage from './pages/FilmDetailsPage/FilmDetailsPage';
+import axios from 'axios';
+import { OMDbFilmDetailsResponse } from './types/OMDbFilmDetailsResponse';
+import { BASE_URL } from './helpers/API';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/movie/:id',
-        element: <FilmDetailsPage />
+        element: <FilmDetailsPage />,
+        loader: async ({ params }) => {
+          try {
+            const { data } = await axios.get<OMDbFilmDetailsResponse>(`${BASE_URL}&i=${params.id}`)
+            return {
+
+              id: data.imdbID,
+              poster: data.Poster,
+              name: data.Title,
+              score: parseFloat(data.imdbRating),
+              description: data.Plot,
+              type: data.Type,
+              productionDate: new Date(data.Released),
+              length: parseInt(data.Runtime),
+              genres: data.Genre.split(', '),
+              comments: []
+            }
+          } catch (e) {
+            console.error(e);
+          }
+        }
       }
     ]
   }
