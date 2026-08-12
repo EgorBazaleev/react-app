@@ -34,24 +34,19 @@ const router = createBrowserRouter([
         element: <FilmDetailsPage />,
         errorElement: <>Something goes wrong</>,
         loader: async ({ params }) => {
-          try {
-            const { data } = await axios.get<OMDbFilmDetailsResponse>(`${BASE_URL}&i=${params.id}`)
-            return {
+          const { data } = await axios.get<OMDbFilmDetailsResponse>(`${BASE_URL}&i=${params.id}`)
+          return {
 
-              id: data.imdbID,
-              poster: data.Poster,
-              name: data.Title,
-              score: parseFloat(data.imdbRating),
-              description: data.Plot,
-              type: data.Type,
-              productionDate: new Date(data.Released),
-              length: parseInt(data.Runtime),
-              genres: data.Genre.split(', '),
-              comments: []
-            }
-          } catch (e) {
-            console.error(e);
-            return;
+            id: data.imdbID,
+            poster: data.Poster,
+            name: data.Title,
+            score: parseFloat(data.imdbRating),
+            description: data.Plot,
+            type: data.Type,
+            productionDate: new Date(data.Released),
+            length: parseInt(data.Runtime),
+            genres: data.Genre.split(', '),
+            comments: []
           }
         }
       }
