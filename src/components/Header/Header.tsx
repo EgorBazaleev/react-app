@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 import { HeaderProps } from './HeaderProps';
 
 function Header({ text }: HeaderProps) {
-    return (<div className={styles['header']}>{text}</div>);
+    return (<h1 className={styles['header']}>{text}</h1>);
 }
 
 export default Header;

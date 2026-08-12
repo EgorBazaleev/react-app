@@ -1,39 +1,28 @@
 .film-card {
-    border: solid;
+    border: none;
+    overflow: hidden;
     border-radius: 12px;
-    align-items: center;
-    width: fit-content;
     background: #20283ECC;
+    padding: 15px;
+}
+
+.film-card__header {
+    align-items: center;
 }
 
 .film-card__poster {
+    position: relative;
     width: 266px;
     height: 380px;
-    padding: 8px;
 }
 
 .film-card__score {
-    display: flex;
-    color: #FFAD49;
-    background-color: #000000A6;
-
-    width: 65px;
-    height: 32px;
-    opacity: 1;
-    border-radius: 8px;
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    padding-left: 8px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
-.film-card__score_icone {
-    width: 15px;
-    height: 15px;
-    padding: 8px;
-}
-
-.film-card__name {
+.film-card__footer__name {
     font-family: Poppins;
     font-weight: 600;
     font-size: 16px;
@@ -41,4 +30,34 @@
     letter-spacing: 2%;
     color: #EBEEF5;
     padding: 8px;
+}
+
+.film-card__footer {
+    padding: 10px;
+}
+
+.film-card__footer__favorite {
+    position: relative;
+    padding: 10px;
+}
+
+.film-card__footer__icon {
+    position: absolute;
+    top: 5px;
+}
+
+.film-card__footer__text {
+    position: absolute;
+    top: 5px;
+    left: 45px;
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 2%;
+    color: #7B6EF6;
+}
+
+.favorite {
+    color: #37D8A7;
 }

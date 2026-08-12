@@ -7,7 +7,7 @@ function Search() {
   return (
     <div className={styles['search']}>
       <Input iconPath="./search.svg" placeholder="Введите название" />
-      <Button text='Искать' onClick={searchButtonHandler} />
+      <Button onClick={searchButtonHandler}>Искать</Button>
     </div>
   );
 }

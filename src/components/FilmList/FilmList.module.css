@@ -1,4 +1,10 @@
 .film-list {
     display: flex;
-    gap: 8px;
+    gap: 40px;
+}
+
+.link {
+    text-decoration: none;
+    outline: none;
+    border: none;
 }

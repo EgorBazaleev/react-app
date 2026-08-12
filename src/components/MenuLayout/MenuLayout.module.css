@@ -1,17 +1,16 @@
 .menu-layout {
+    display: flex;
     padding: 16px;
     height: 40px;
-    width: 100%;
+    justify-content: space-between;
 }
 
 .menu-layout__front-icon {
     width: 30px;
     height: 33px;
-    float: left;
 }
 
 .menu-layout__content {
-    float: right;
     display: flex;
     gap: 30px;
 }
