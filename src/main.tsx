@@ -35,6 +35,9 @@ const router = createBrowserRouter([
         errorElement: <>Something goes wrong</>,
         loader: async ({ params }) => {
           const { data } = await axios.get<OMDbFilmDetailsResponse>(`${BASE_URL}&i=${params.id}`)
+          if (data?.Response !== 'True') {
+            throw new Error(`Item '${params.id}' not found`);
+          }
           return {
 
             id: data.imdbID,
