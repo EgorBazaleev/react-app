@@ -1,4 +1,4 @@
-import { Film } from "./Film.type"
+import { Film } from "../../types/Film.type"
 
 export interface FilmListProps {
     films: Film[];

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './FilmCard.module.css';
 import { FilmCardProps } from './FilmCardProps';
+import Rank from '../Rank/Rank';
 
 function FilmCard({ poster, name, score, isInFavorite }: FilmCardProps) {
 
@@ -26,10 +27,7 @@ function FilmCard({ poster, name, score, isInFavorite }: FilmCardProps) {
         <div className={styles['film-card']}>
             <div className={styles['film-card__header']}>
                 <div className={styles['film-card__poster']} style={{ backgroundImage: `url(${poster})` }}>
-                    <div className={styles['film-card__score']}>
-                        <img className={styles['film-card__score__icon']} src='./star.svg' />
-                        <div>{score}</div>
-                    </div>
+                    <Rank score={score} className={styles['film-card__score']} />
                 </div>
             </div>
             <div className={styles['film-card__footer']}>

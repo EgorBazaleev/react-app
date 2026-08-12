@@ -1,4 +1,4 @@
-import { Film } from "../../components/FilmList/Film.type";
+import { Film } from "../../types/Film.type";
 import FilmList from "../../components/FilmList/FilmList";
 import Header from "../../components/Header/Header";
 import Paragraph from "../../components/Paragraph/Paragraph";

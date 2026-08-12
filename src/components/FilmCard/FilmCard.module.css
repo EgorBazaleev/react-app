@@ -19,24 +19,7 @@
 .film-card__score {
     position: absolute;
     top: 10px;
-    display: flex;
-    color: #FFAD49;
-    background-color: #000000A6;
-
-    width: 65px;
-    height: 32px;
-    opacity: 1;
-    border-radius: 8px;
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-}
-
-.film-card__score__icon {
-    width: 15px;
-    height: 15px;
-    padding: 6px 6px;
+    left: 10px;
 }
 
 .film-card__footer__name {

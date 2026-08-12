@@ -11,7 +11,6 @@ function FilmList({ films, isInFavorite }: FilmListProps) {
                     <FilmCard poster={film.poster} name={film.name} score={film.score} isInFavorite={isInFavorite} />
                 </Link>
             )}
-
         </div>
     );
 }
