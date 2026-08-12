@@ -22,7 +22,9 @@ function FilmDetailsPage() {
                     </div>
                     <div className={styles['key-value']}>
                         <span className={styles['label']}>Дата выхода</span>
-                        <span className={styles['field-value']}>{filmDetails!.productionDate.toISOString().split('T')[0]}</span>
+                        <span className={styles['field-value']}>{isNaN(filmDetails!.productionDate.getTime())
+                            ? filmDetails!.productionDate.toISOString().split('T')[0]
+                            : ''}</span>
                     </div>
                     <div className={styles['key-value']}>
                         <span className={styles['label']}>Длительность</span>

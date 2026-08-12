@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/movie/:id',
         element: <FilmDetailsPage />,
+        errorElement: <>Something goes wrong</>,
         loader: async ({ params }) => {
           try {
             const { data } = await axios.get<OMDbFilmDetailsResponse>(`${BASE_URL}&i=${params.id}`)
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
             }
           } catch (e) {
             console.error(e);
+            return;
           }
         }
       }

@@ -13,11 +13,11 @@ import { OMDbSearchResponse } from "../../types/OMDbSearchResponse";
 function MainPage() {
 
     const [films, setFilms] = useState<Film[]>([]);
+    const [hasSearched, setHasSearched] = useState(false);
 
     const getFilms = async (searchText: string) => {
         try {
             const { data } = await axios.get<OMDbSearchResponse>(`${BASE_URL}&s=${searchText}`)
-            console.log(data);
             if (data && data.Response === 'True' && data.Search?.length > 0) {
                 const foundFilms = data.Search.map(film => {
                     return {
@@ -28,9 +28,16 @@ function MainPage() {
                     }
                 });
                 setFilms(foundFilms);
+                return;
             }
+            setFilms([]);
         } catch (e) {
             console.error(e);
+            setFilms([]);
+        } finally {
+            if (!hasSearched) {
+                setHasSearched(true);
+            }
         }
     };
 
@@ -39,9 +46,11 @@ function MainPage() {
             <Header text="Поиск" />
             <Paragraph />
             <Search onSearch={getFilms} />
-            {films?.length
-                ? <FilmList films={films} isInFavorite={false} />
-                : <NoFilms />}
+            {!hasSearched
+                ? ''
+                : films?.length
+                    ? <FilmList films={films} isInFavorite={false} />
+                    : <NoFilms />}
 
         </div>
     );
