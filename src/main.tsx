@@ -11,19 +11,16 @@ import FilmDetailsPage from './pages/FilmDetailsPage/FilmDetailsPage';
 import axios from 'axios';
 import { OMDbFilmDetailsResponse } from './types/OMDbFilmDetailsResponse';
 import { BASE_URL } from './helpers/API';
+import { AuthRequired } from './helpers/AuthRequired';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainMenu />,
+    element: <AuthRequired> <MainMenu /></AuthRequired>,
     children: [
       {
         path: '/',
         element: <MainPage />
-      },
-      {
-        path: '/login',
-        element: <LoginForm />
       },
       {
         path: '/favorites',
@@ -52,6 +49,16 @@ const router = createBrowserRouter([
             comments: []
           }
         }
+      }
+    ]
+  },
+  {
+    path: '/login',
+    element: <MainMenu />,
+    children: [
+      {
+        path: '/login',
+        element: <LoginForm />
       }
     ]
   }
