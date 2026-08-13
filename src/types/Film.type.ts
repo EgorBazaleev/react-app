@@ -1,5 +1,5 @@
 export interface Film {
-    id: number;
+    id: string;
     poster: string;
     name: string;
     score: number;

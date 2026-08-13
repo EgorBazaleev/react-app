@@ -1,0 +1,1 @@
+export const BASE_URL = `http://www.omdbapi.com?apikey=${import.meta.env.VITE_API_KEY}`;
