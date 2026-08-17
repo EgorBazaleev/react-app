@@ -1,7 +1,8 @@
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import styles from './FilmDetailsPage.module.css'
 import { FilmDetails } from '../../types/FilmDeteils.type';
-import { useState } from 'react';
+import Rank from '../../components/Rank/Rank';
+import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
 
 function FilmDetailsPage() {
     const filmDetails = useLoaderData() as FilmDetails;
@@ -16,6 +17,10 @@ function FilmDetailsPage() {
                 <img src={filmDetails!.poster} className={styles['leftsider']} />
                 <div className={styles['rightsider']}>
                     <span className={styles['text-content']}>{filmDetails!.description}</span>
+                    <div className={styles['actions']}>
+                        <Rank score={filmDetails!.score} />
+                        <FavoriteButton film={filmDetails} />
+                    </div>
                     <div className={styles['key-value']}>
                         <span className={styles['label']}>Тип</span>
                         <span className={styles['field-value']}>{filmDetails!.type}</span>

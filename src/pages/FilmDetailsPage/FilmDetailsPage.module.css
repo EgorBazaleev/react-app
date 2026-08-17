@@ -51,6 +51,13 @@
     gap: 30px;
 }
 
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
 .key-value {
     display: flex;
     flex-direction: column;

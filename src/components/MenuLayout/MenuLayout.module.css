@@ -13,4 +13,5 @@
 .menu-layout__content {
     display: flex;
     gap: 30px;
+    align-items: center;
 }
