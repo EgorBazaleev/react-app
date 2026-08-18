@@ -1,9 +1,10 @@
-import { ReactNode, useContext } from "react";
-import { UserContext } from "../components/context/UserContext";
+import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export function AuthRequired({ children }: { children: ReactNode }) {
-    const { userName } = useContext(UserContext)
+    const userName = useSelector((s: RootState) => s.user?.name);
     if (!userName) {
         return <Navigate to='/login' replace />
     }

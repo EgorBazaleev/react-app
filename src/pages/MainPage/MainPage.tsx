@@ -49,7 +49,7 @@ function MainPage() {
             {!hasSearched
                 ? ''
                 : films?.length
-                    ? <FilmList films={films} isInFavorite={false} />
+                    ? <FilmList films={films} />
                     : <NoFilms />}
 
         </div>

@@ -1,18 +1,24 @@
-import { useContext } from 'react';
 import MenuLayout from '../MenuLayout/MenuLayout';
-import { UserContext } from '../context/UserContext';
-import { UserContextType } from '../context/UserContextType';
 import { NavLink, Outlet } from 'react-router-dom';
 import styles from './MainMenu.module.css'
 import cn from 'classnames'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 function MainMenu() {
-    const { userName }: UserContextType = useContext(UserContext);
+    const userName = useSelector((s: RootState) => s.user?.name);
+    const favoriteFilms = useSelector((s: RootState) => s.favorites.films) ?? [];
     return (
         <>
-            <MenuLayout iconPath='./bookmark.svg'>
+            <MenuLayout iconPath='/bookmark.svg'>
                 <NavLink className={({ isActive }) => cn(styles['link'], { [styles['active']]: isActive })} to='/'>Поиск фильмов</NavLink>
-                <NavLink className={({ isActive }) => cn(styles['link'], { [styles['active']]: isActive })} to='/favorites'>Мои фильмы</NavLink>
+                <div className={styles['favorite']}>
+                    <NavLink className={({ isActive }) => cn(styles['link'], { [styles['active']]: isActive })} to='/favorites'>Мои фильмы</NavLink>
+                    {
+                        favoriteFilms.length > 0
+                            ? <div className={styles['counter']}>{favoriteFilms.length}</div>
+                            : ''}
+                </div>
                 {
                     userName
                         ? <>

@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { UserContextProvider } from './components/context/UserContextProvider.js';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import LoginForm from './pages/LoginForm/LoginForm';
@@ -12,6 +11,8 @@ import axios from 'axios';
 import { OMDbFilmDetailsResponse } from './types/OMDbFilmDetailsResponse';
 import { BASE_URL } from './helpers/API';
 import { AuthRequired } from './helpers/AuthRequired';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const router = createBrowserRouter([
   {
@@ -66,8 +67,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <UserContextProvider>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </UserContextProvider>
+    </Provider>
   </StrictMode>
 );

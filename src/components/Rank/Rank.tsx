@@ -5,7 +5,7 @@ import cn from 'classnames'
 function Rank({ score, className }: RankProps) {
     return (
         <div className={cn(styles['score'], className)}>
-            <img className={styles['score__icon']} src='./star.svg' />
+            <img className={styles['score__icon']} src='/star.svg' />
             <div>{score}</div>
         </div>
     );

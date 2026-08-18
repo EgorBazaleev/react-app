@@ -6,3 +6,26 @@
 .active {
     color: rgb(180, 163, 163);
 }
+
+.favorite {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.counter {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #7B6EF6;
+    font-family: Poppins;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 2%;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: center;
+}

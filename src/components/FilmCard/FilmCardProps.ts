@@ -1,6 +1,5 @@
+import { Film } from "../../types/Film.type";
+
 export interface FilmCardProps {
-    poster: string;
-    name: string;
-    score: number;
-    isInFavorite: boolean;
+    film: Film;
 }
