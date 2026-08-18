@@ -26,11 +26,8 @@ store.subscribe(() => {
             user = { name: userName, isLogined: true, favorites: [] };
             users = [...users, user];
         }
-        if (!user!.isLogined) {
-            user!.isLogined = true;
-        } else {
-            user!.favorites = store.getState().favorites.films ?? []
-        }
+        user!.isLogined = true;
+        user!.favorites = store.getState().favorites.films ?? []
     }
     saveState(users, USER_PROFILE_KEY);
 })
